@@ -4,7 +4,7 @@
       "esnext",
       "dom"
     ],
-    "module": "esnext",
+    "module": "commonjs",
     "target": "ESNext",
     "strict": true,
     "esModuleInterop": true,
