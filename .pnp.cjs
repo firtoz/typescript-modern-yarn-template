@@ -33,7 +33,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemon", "npm:2.0.20"],\
             ["ts-node", "virtual:24e7b5fcc67b5e1f44479a3d08d58aa6e877e292cd915af65a0249380822042ae99e93c32629c25bebfd3e6715fbb2ac5a61a3aa50c645e39dbe1e7909f89708#npm:10.9.1"],\
             ["ts-node-dev", "virtual:24e7b5fcc67b5e1f44479a3d08d58aa6e877e292cd915af65a0249380822042ae99e93c32629c25bebfd3e6715fbb2ac5a61a3aa50c645e39dbe1e7909f89708#npm:2.0.0"],\
-            ["ts-pegjs", "virtual:24e7b5fcc67b5e1f44479a3d08d58aa6e877e292cd915af65a0249380822042ae99e93c32629c25bebfd3e6715fbb2ac5a61a3aa50c645e39dbe1e7909f89708#npm:2.1.0"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=d73830"]\
           ],\
           "linkType": "SOFT"\
@@ -1245,7 +1244,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemon", "npm:2.0.20"],\
             ["ts-node", "virtual:24e7b5fcc67b5e1f44479a3d08d58aa6e877e292cd915af65a0249380822042ae99e93c32629c25bebfd3e6715fbb2ac5a61a3aa50c645e39dbe1e7909f89708#npm:10.9.1"],\
             ["ts-node-dev", "virtual:24e7b5fcc67b5e1f44479a3d08d58aa6e877e292cd915af65a0249380822042ae99e93c32629c25bebfd3e6715fbb2ac5a61a3aa50c645e39dbe1e7909f89708#npm:2.0.0"],\
-            ["ts-pegjs", "virtual:24e7b5fcc67b5e1f44479a3d08d58aa6e877e292cd915af65a0249380822042ae99e93c32629c25bebfd3e6715fbb2ac5a61a3aa50c645e39dbe1e7909f89708#npm:2.1.0"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=d73830"]\
           ],\
           "linkType": "SOFT"\
@@ -1731,28 +1729,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/typescript",\
             "node-notifier",\
             "typescript"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["ts-pegjs", [\
-        ["npm:2.1.0", {\
-          "packageLocation": "./.yarn/cache/ts-pegjs-npm-2.1.0-a5ec3cac92-c726a086cb.zip/node_modules/ts-pegjs/",\
-          "packageDependencies": [\
-            ["ts-pegjs", "npm:2.1.0"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:24e7b5fcc67b5e1f44479a3d08d58aa6e877e292cd915af65a0249380822042ae99e93c32629c25bebfd3e6715fbb2ac5a61a3aa50c645e39dbe1e7909f89708#npm:2.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/ts-pegjs-virtual-5d177530a4/0/cache/ts-pegjs-npm-2.1.0-a5ec3cac92-c726a086cb.zip/node_modules/ts-pegjs/",\
-          "packageDependencies": [\
-            ["ts-pegjs", "virtual:24e7b5fcc67b5e1f44479a3d08d58aa6e877e292cd915af65a0249380822042ae99e93c32629c25bebfd3e6715fbb2ac5a61a3aa50c645e39dbe1e7909f89708#npm:2.1.0"],\
-            ["@types/peggy", null],\
-            ["peggy", null]\
-          ],\
-          "packagePeers": [\
-            "@types/peggy",\
-            "peggy"\
           ],\
           "linkType": "HARD"\
         }]\

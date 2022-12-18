@@ -1058,7 +1058,6 @@ __metadata:
     nodemon: ^2.0.20
     ts-node: ^10.9.1
     ts-node-dev: ^2.0.0
-    ts-pegjs: ^2.1.0
     typescript: 4.9.4
   languageName: unknown
   linkType: soft
@@ -1462,17 +1461,6 @@ __metadata:
     ts-node-transpile-only: dist/bin-transpile.js
     ts-script: dist/bin-script-deprecated.js
   checksum: 090adff1302ab20bd3486e6b4799e90f97726ed39e02b39e566f8ab674fd5bd5f727f43615debbfc580d33c6d9d1c6b1b3ce7d8e3cca3e20530a145ffa232c35
-  languageName: node
-  linkType: hard
-
-"ts-pegjs@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "ts-pegjs@npm:2.1.0"
-  peerDependencies:
-    peggy: ^2.0.1
-  bin:
-    tspegjs: src/cli.js
-  checksum: c726a086cba264e0c607a661a64fa5f9dd721d7779f44525d82f1536e6fdac6f70f866a347b858a41a28d2d2db8043d8751f4427b1cbabff0d5e74ede0d9fc95
   languageName: node
   linkType: hard
 
