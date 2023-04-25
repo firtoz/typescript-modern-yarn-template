@@ -17,6 +17,7 @@ Hello world!`;
 
 const removeAction = () => {
     unlinkSync('.github/workflows/cleanup.yml');
+    unlinkSync('scripts/cleanup.ts');
 }
 
 const main = () => {

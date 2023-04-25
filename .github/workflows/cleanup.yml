@@ -28,24 +28,17 @@ jobs:
       - name: Install and run script
         if: env.IS_TEMPLATE != 'true'
         run: |
-          if [ "${{ env.IS_TEMPLATE }}" != "true" ]; then
-            yarn install
-            yarn add --dev jsonc-parser
-            yarn cleanup "${{ github.event.repository.name }}"
-            yarn remove jsonc-parser
-            yarn install
-          fi
+          yarn install
+          yarn add --dev jsonc-parser
+          yarn cleanup "${{ github.event.repository.name }}"
+          yarn remove jsonc-parser
+          yarn install
         id: script_step
         env:
           IS_TEMPLATE: ${{ secrets.IS_TEMPLATE }}
-
-      - name: Create Pull Request
-        if: steps.script_step.outcome == 'success' && env.IS_TEMPLATE != 'true'
-        uses: peter-evans/create-pull-request@v5
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        if: env.IS_TEMPLATE != 'true'
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: 'cleanup-${{ github.event.repository.name }}'
-          commit-message: 'Update package.json and README.md'
-          title: 'Cleanup for ${{ github.event.repository.name }}'
-          body: 'This PR updates package.json and README.md to reflect the correct project name.'
-          labels: 'cleanup'
+          commit_message: "Cleaned up"
+          push_options: --force
