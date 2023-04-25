@@ -2,6 +2,8 @@ name: Cleanup
 
 env:
   IS_TEMPLATE: ${{ secrets.IS_TEMPLATE }}
+  
+permissions: write-all
 
 on:
   push:
