@@ -1,0 +1,43 @@
+name: Cleanup
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - name: Install and run script
+        run: |
+          if [ "${{ env.IS_TEMPLATE }}" != "true" ]; then
+            yarn install
+            yarn add --dev jsonc-parser
+            yarn post-template-use-clean "${{ github.event.repository.name }}"
+            yarn remove jsonc-parser
+            yarn install
+          fi
+        id: script_step
+        env:
+          IS_TEMPLATE: ${{ secrets.IS_TEMPLATE }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: 'cleanup-${{ github.event.repository.name }}'
+          commit-message: 'Update package.json and README.md'
+          title: 'Cleanup for ${{ github.event.repository.name }}'
+          body: 'This PR updates package.json and README.md to reflect the correct project name.'
+          labels: 'cleanup'
+        if: steps.script_step.outcome == 'success' && env.IS_TEMPLATE != 'true'
