@@ -29,7 +29,7 @@ jobs:
           if [ "${{ env.IS_TEMPLATE }}" != "true" ]; then
             yarn install
             yarn add --dev jsonc-parser
-            yarn post-template-use-clean "${{ github.event.repository.name }}"
+            yarn cleanup "${{ github.event.repository.name }}"
             yarn remove jsonc-parser
             yarn install
           fi
