@@ -11,27 +11,34 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: env.IS_TEMPLATE != 'true'
 
     steps:
       - name: Check out repository
+        if: env.IS_TEMPLATE != 'true'
         uses: actions/checkout@v3
 
       - name: Set up Node.js
+        if: env.IS_TEMPLATE != 'true'
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
       - name: Install and run script
+        if: env.IS_TEMPLATE != 'true'
         run: |
-          yarn install
-          yarn add --dev jsonc-parser
-          yarn post-template-use-clean "${{ github.event.repository.name }}"
-          yarn remove jsonc-parser
-          yarn install
+          if [ "${{ env.IS_TEMPLATE }}" != "true" ]; then
+            yarn install
+            yarn add --dev jsonc-parser
+            yarn post-template-use-clean "${{ github.event.repository.name }}"
+            yarn remove jsonc-parser
+            yarn install
+          fi
         id: script_step
+        env:
+          IS_TEMPLATE: ${{ secrets.IS_TEMPLATE }}
 
       - name: Create Pull Request
+        if: steps.script_step.outcome == 'success' && env.IS_TEMPLATE != 'true'
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -40,4 +47,3 @@ jobs:
           title: 'Cleanup for ${{ github.event.repository.name }}'
           body: 'This PR updates package.json and README.md to reflect the correct project name.'
           labels: 'cleanup'
-        if: steps.script_step.outcome == 'success'
