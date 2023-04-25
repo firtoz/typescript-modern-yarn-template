@@ -1,5 +1,8 @@
 name: Cleanup
 
+env:
+  IS_TEMPLATE: ${{ secrets.IS_TEMPLATE }}
+
 on:
   push:
     branches:
